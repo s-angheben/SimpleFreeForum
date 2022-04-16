@@ -21,7 +21,7 @@
           pkgs.haskell.lib.doJailbreak (pkg.overrideAttrs (_: { meta = { }; }));
 
         # DON'T FORGET TO PUT YOUR PACKAGE NAME HERE, REMOVING `throw`
-        packageName = throw "put your package name here!";
+        packageName = "forum";
       in {
         packages.${packageName} =
           haskellPackages.callCabal2nix packageName self rec {
@@ -29,6 +29,9 @@
           };
 
         defaultPackage = self.packages.${system}.${packageName};
+
+	## my add
+	librarySystemDepends = [ pkgs.zlib ];
 
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [

@@ -48,7 +48,9 @@ extra-source-files:
 
 library
     -- Modules exported by the library.
-    exposed-modules:  MyLib
+    exposed-modules:  MyLib,
+                      Core,
+                      Types
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -57,7 +59,14 @@ library
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.14.3.0
+    build-depends:    base ^>=4.15,
+                      servant >= 0.19,
+                      servant-blaze >= 0.9.1,
+                      text >= 2.0,
+                      time >= 1.1,
+                      warp >= 3.3.20,
+                      wai >= 3.2.3
+
 
     -- Directories containing source files.
     hs-source-dirs:   src
@@ -77,7 +86,7 @@ executable forum
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.14.3.0,
+        base ^>=4.15,
         forum
 
     -- Directories containing source files.
@@ -100,4 +109,4 @@ test-suite forum-test
     main-is:          MyLibTest.hs
 
     -- Test dependencies.
-    build-depends:    base ^>=4.14.3.0
+    build-depends:    base ^>=4.15
