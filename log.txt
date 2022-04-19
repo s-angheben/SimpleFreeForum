@@ -1,0 +1,64 @@
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT "comment"."id", "comment"."topic", "comment"."text", "comment"."time"
+FROM "comment"
+WHERE "comment"."topic" = ?
+; [PersistText "lol"]
+[Debug#SQL] SELECT "comment"."id", "comment"."topic", "comment"."text", "comment"."time"
+FROM "comment"
+WHERE "comment"."topic" = ?
+; [PersistText "test"]
+[Debug#SQL] SELECT "comment"."id", "comment"."topic", "comment"."text", "comment"."time"
+FROM "comment"
+WHERE "comment"."topic" = ?
+; [PersistText "a"]
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT DISTINCT "comment"."topic"
+FROM "comment"
+; []
+[Debug#SQL] SELECT "comment"."id", "comment"."topic", "comment"."text", "comment"."time"
+FROM "comment"
+WHERE "comment"."topic" = ?
+; [PersistText "puppies"]
+[Debug#SQL] SELECT "comment"."id", "comment"."topic", "comment"."text", "comment"."time"
+FROM "comment"
+WHERE "comment"."topic" = ?
+; [PersistText "lol"]
+[Debug#SQL] SELECT "d_b_comment"."id", "d_b_comment"."topic", "d_b_comment"."text", "d_b_comment"."time"
+FROM "d_b_comment"
+WHERE "d_b_comment"."topic" = ?
+; [PersistText "lol"]
+[Debug#SQL] SELECT "d_b_comment"."id", "d_b_comment"."topic", "d_b_comment"."text", "d_b_comment"."time"
+FROM "d_b_comment"
+WHERE "d_b_comment"."topic" = ?
+; [PersistText "lol"]
+[Debug#SQL] SELECT DISTINCT "d_b_comment"."topic"
+FROM "d_b_comment"
+; []

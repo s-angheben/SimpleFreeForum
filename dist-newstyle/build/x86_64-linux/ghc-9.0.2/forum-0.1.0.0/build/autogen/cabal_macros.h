@@ -10,6 +10,16 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_forum */
+/* package aeson-2.0.3.0 */
+#ifndef VERSION_aeson
+#define VERSION_aeson "2.0.3.0"
+#endif /* VERSION_aeson */
+#ifndef MIN_VERSION_aeson
+#define MIN_VERSION_aeson(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  0 || \
+  (major1) == 2 && (major2) == 0 && (minor) <= 3)
+#endif /* MIN_VERSION_aeson */
 /* package base-4.15.1.0 */
 #ifndef VERSION_base
 #define VERSION_base "4.15.1.0"
@@ -20,6 +30,76 @@
   (major1) == 4 && (major2) <  15 || \
   (major1) == 4 && (major2) == 15 && (minor) <= 1)
 #endif /* MIN_VERSION_base */
+/* package blaze-html-0.9.1.2 */
+#ifndef VERSION_blaze_html
+#define VERSION_blaze_html "0.9.1.2"
+#endif /* VERSION_blaze_html */
+#ifndef MIN_VERSION_blaze_html
+#define MIN_VERSION_blaze_html(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  9 || \
+  (major1) == 0 && (major2) == 9 && (minor) <= 1)
+#endif /* MIN_VERSION_blaze_html */
+/* package bytestring-0.10.12.1 */
+#ifndef VERSION_bytestring
+#define VERSION_bytestring "0.10.12.1"
+#endif /* VERSION_bytestring */
+#ifndef MIN_VERSION_bytestring
+#define MIN_VERSION_bytestring(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  10 || \
+  (major1) == 0 && (major2) == 10 && (minor) <= 12)
+#endif /* MIN_VERSION_bytestring */
+/* package esqueleto-3.5.4.1 */
+#ifndef VERSION_esqueleto
+#define VERSION_esqueleto "3.5.4.1"
+#endif /* VERSION_esqueleto */
+#ifndef MIN_VERSION_esqueleto
+#define MIN_VERSION_esqueleto(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  5 || \
+  (major1) == 3 && (major2) == 5 && (minor) <= 4)
+#endif /* MIN_VERSION_esqueleto */
+/* package monad-logger-0.3.36 */
+#ifndef VERSION_monad_logger
+#define VERSION_monad_logger "0.3.36"
+#endif /* VERSION_monad_logger */
+#ifndef MIN_VERSION_monad_logger
+#define MIN_VERSION_monad_logger(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  3 || \
+  (major1) == 0 && (major2) == 3 && (minor) <= 36)
+#endif /* MIN_VERSION_monad_logger */
+/* package mtl-2.2.2 */
+#ifndef VERSION_mtl
+#define VERSION_mtl "2.2.2"
+#endif /* VERSION_mtl */
+#ifndef MIN_VERSION_mtl
+#define MIN_VERSION_mtl(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 2)
+#endif /* MIN_VERSION_mtl */
+/* package persistent-2.14.0.0 */
+#ifndef VERSION_persistent
+#define VERSION_persistent "2.14.0.0"
+#endif /* VERSION_persistent */
+#ifndef MIN_VERSION_persistent
+#define MIN_VERSION_persistent(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  14 || \
+  (major1) == 2 && (major2) == 14 && (minor) <= 0)
+#endif /* MIN_VERSION_persistent */
+/* package persistent-postgresql-2.13.5.0 */
+#ifndef VERSION_persistent_postgresql
+#define VERSION_persistent_postgresql "2.13.5.0"
+#endif /* VERSION_persistent_postgresql */
+#ifndef MIN_VERSION_persistent_postgresql
+#define MIN_VERSION_persistent_postgresql(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  13 || \
+  (major1) == 2 && (major2) == 13 && (minor) <= 5)
+#endif /* MIN_VERSION_persistent_postgresql */
 /* package servant-0.19 */
 #ifndef VERSION_servant
 #define VERSION_servant "0.19"
@@ -40,15 +120,25 @@
   (major1) == 0 && (major2) <  9 || \
   (major1) == 0 && (major2) == 9 && (minor) <= 1)
 #endif /* MIN_VERSION_servant_blaze */
-/* package text-2.0 */
+/* package servant-server-0.19.1 */
+#ifndef VERSION_servant_server
+#define VERSION_servant_server "0.19.1"
+#endif /* VERSION_servant_server */
+#ifndef MIN_VERSION_servant_server
+#define MIN_VERSION_servant_server(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  19 || \
+  (major1) == 0 && (major2) == 19 && (minor) <= 1)
+#endif /* MIN_VERSION_servant_server */
+/* package text-1.2.5.0 */
 #ifndef VERSION_text
-#define VERSION_text "2.0"
+#define VERSION_text "1.2.5.0"
 #endif /* VERSION_text */
 #ifndef MIN_VERSION_text
 #define MIN_VERSION_text(major1,major2,minor) (\
-  (major1) <  2 || \
-  (major1) == 2 && (major2) <  0 || \
-  (major1) == 2 && (major2) == 0 && (minor) <= 0)
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 5)
 #endif /* MIN_VERSION_text */
 /* package time-1.9.3 */
 #ifndef VERSION_time
@@ -60,6 +150,26 @@
   (major1) == 1 && (major2) <  9 || \
   (major1) == 1 && (major2) == 9 && (minor) <= 3)
 #endif /* MIN_VERSION_time */
+/* package wai-3.2.3 */
+#ifndef VERSION_wai
+#define VERSION_wai "3.2.3"
+#endif /* VERSION_wai */
+#ifndef MIN_VERSION_wai
+#define MIN_VERSION_wai(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  2 || \
+  (major1) == 3 && (major2) == 2 && (minor) <= 3)
+#endif /* MIN_VERSION_wai */
+/* package warp-3.3.20 */
+#ifndef VERSION_warp
+#define VERSION_warp "3.3.20"
+#endif /* VERSION_warp */
+#ifndef MIN_VERSION_warp
+#define MIN_VERSION_warp(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  3 || \
+  (major1) == 3 && (major2) == 3 && (minor) <= 20)
+#endif /* MIN_VERSION_warp */
 
 /* tool cpphs-1.20.9 */
 #ifndef TOOL_VERSION_cpphs

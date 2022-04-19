@@ -30,16 +30,16 @@
 
         defaultPackage = self.packages.${system}.${packageName};
 
-	## my add
-	librarySystemDepends = [ pkgs.zlib ];
-
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             haskellPackages.haskell-language-server # you must build it with your ghc to work
             ghcid
             cabal-install
+            postgresql
+            zlib
           ];
           inputsFrom = builtins.attrValues self.packages.${system};
         };
+
       });
 }
