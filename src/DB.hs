@@ -39,7 +39,7 @@ import           Database.Persist.TH                        ( AtLeastOneUniqueKe
 -- TYPES
 
 share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
-DBComment 
+DbComment 
     topic Text 
     text Text
     time UTCTime
@@ -47,26 +47,30 @@ DBComment
 |]
 
 
-toComment :: DBComment -> Comment 
-toComment (DBComment topic text time) = Comment (Topic topic) (CommentText text) time
+toComment :: DbComment -> Comment 
+toComment (DbComment topic text time) = Comment (Topic topic) (CommentText text) time
+
+
+fromComment :: Comment -> DbComment
+fromComment (Comment (Topic topic) (CommentText text) time) = DbComment topic text time
 
 -- DB
 
 queryGetComments :: (MonadIO m, MonadLogger m)
-         => Text -> SqlReadT m [Entity DBComment]
+         => Text -> SqlReadT m [Entity DbComment]
 queryGetComments t =
     select $ do
-    c <- from $ table @DBComment
-    where_ (c ^. DBCommentTopic ==. val t)
+    c <- from $ table @DbComment
+    where_ (c ^. DbCommentTopic ==. val t)
     pure c
 
 
 queryGetTopics :: (MonadIO m, MonadLogger m) => SqlReadT m [Value Text]
 queryGetTopics =
     select $ distinct $ do
-        c <- from $ table @DBComment
-        let topics = c ^. DBCommentTopic
-        return (c ^. DBCommentTopic)
+        c <- from $ table @DbComment
+        let topics = c ^. DbCommentTopic
+        return (c ^. DbCommentTopic)
 
 
 conn = "host=localhost dbname=forum_db user=tester password=test_password port=5432"
@@ -87,6 +91,14 @@ runAppDB env appDB = runReaderT (runAppDB' appDB) env
 runQuery logfile conn query = runFileLoggingT logfile $ withPostgresqlConn conn (runSqlConn query)
 
 
+setupDb :: (MonadIO m, MonadLogger m)
+          => SqlPersistT m ()
+setupDb = do
+  runMigration migrateAll
+
+initDB :: IO ()
+initDB = runQuery "log.txt" conn setupDb
+
 getTopics :: IO [Topic]
 getTopics = do
     a <- liftIO $ runQuery "log.txt" conn queryGetTopics
@@ -94,8 +106,14 @@ getTopics = do
     return $ Topic <$> c
 
 
-getComment :: Text -> IO [Comment]
+getComment :: Topic -> IO [Comment]
 getComment t = do
-    a <- runFileLoggingT "log.txt" $ withPostgresqlConn conn (runSqlConn $ queryGetComments t)
+    a <- runFileLoggingT "log.txt" $ withPostgresqlConn conn (runSqlConn $ queryGetComments (getTopic t))
     let c = entityVal <$> a
     return $ toComment <$> c
+
+
+addComment :: Comment -> IO ()
+addComment c = do
+    runFileLoggingT "log.txt" $ withPostgresqlConn conn (runSqlConn $ insert (fromComment c))
+    return ()

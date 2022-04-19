@@ -62,3 +62,69 @@ WHERE "d_b_comment"."topic" = ?
 [Debug#SQL] SELECT DISTINCT "d_b_comment"."topic"
 FROM "d_b_comment"
 ; []
+[Debug#SQL] CREATe TABLE "d_b_comment"("id" SERIAL8  PRIMARY KEY UNIQUE,"topic" VARCHAR NOT NULL,"text" VARCHAR NOT NULL,"time" TIMESTAMP WITH TIME ZONE NOT NULL); []
+[Debug#SQL] CREATe TABLE "d_b_comment"("id" SERIAL8  PRIMARY KEY UNIQUE,"topic" VARCHAR NOT NULL,"text" VARCHAR NOT NULL,"time" TIMESTAMP WITH TIME ZONE NOT NULL); []
+[Debug#SQL] CREATe TABLE "db_comment"("id" SERIAL8  PRIMARY KEY UNIQUE,"topic" VARCHAR NOT NULL,"text" VARCHAR NOT NULL,"time" TIMESTAMP WITH TIME ZONE NOT NULL); []
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "prova",PersistText "hello",PersistUTCTime 2022-04-19 11:44:21.089159635 UTC]
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "prova",PersistText "world",PersistUTCTime 2022-04-19 11:44:21.089159635 UTC]
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "topic interessante",PersistText "pp",PersistUTCTime 2022-04-19 11:44:21.089159635 UTC]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "test",PersistText "2022-04-16T15:32:48.459784824Z",PersistUTCTime 2022-04-19 11:54:49.320183071 UTC]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "test",PersistText "2022-04-16T15:32:48.459784824Z",PersistUTCTime 2022-04-19 11:57:58.871714894 UTC]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "test"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "test"]
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "test",PersistText "2022-04-16T15:32:48.459784824Z",PersistUTCTime 2022-04-19 12:43:38.899341975 UTC]
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "test",PersistText "ciao",PersistUTCTime 2022-04-19 12:43:52.26177833 UTC]
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "test"]
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "test"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]

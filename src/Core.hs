@@ -29,6 +29,7 @@ instance FromHttpApiData Topic where
   parseUrlPiece = Right . Topic
 
 
+
 type GetTopicListAPI   = "list" :> Get '[JSON] [Topic]
 type GetCommentListAPI = Capture "topic" Topic :> "view" :> Get '[JSON] [Comment]
 type PostCommentAPI    = Capture "topic" Topic :> "add"  :> ReqBody '[JSON] CommentText :> Post '[JSON] Topic
@@ -40,7 +41,6 @@ type ForumAPI = GetTopicListAPI
 
 forumAPI :: Proxy ForumAPI
 forumAPI = Proxy
-
 
 
 -- newtype Handler a = IO (Either ServerError a)
@@ -59,7 +59,7 @@ handleGetTopicList :: (AppM ServerError) [Topic]
 handleGetTopicList = liftIO getTopics
 
 handleGetCommentList :: Topic -> (AppM ServerError) [Comment]
-handleGetCommentList (Topic t) = do
+handleGetCommentList t = do
     com <- liftIO $ getComment t
     return com
     where
@@ -67,7 +67,12 @@ handleGetCommentList (Topic t) = do
 --    return [Comment (CommentId 4) (Topic "ciao") (CommentText "hello") t]
 
 handlePostComment :: Topic -> CommentText -> (AppM ServerError) Topic
-handlePostComment t c = asks (Topic . T.pack)
+handlePostComment topic comText = do
+  time <- liftIO getCurrentTime 
+  let c = Comment topic comText time
+  liftIO $ addComment c
+  return topic
+
 
 funToHandler :: (AppM ServerError) a -> Handler a
 funToHandler (AppM t) = Handler $ runReaderT t "env"
