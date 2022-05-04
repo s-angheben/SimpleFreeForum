@@ -128,3 +128,42 @@ FROM "db_comment"
 FROM "db_comment"
 WHERE "db_comment"."topic" = ?
 ; [PersistText "prova"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "prova"]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "test"]
+[Debug#SQL] INSERT INTO "db_comment"("topic","text","time") VALUES(?,?,?) RETURNING "id"; [PersistText "ciao",PersistText "ciao",PersistUTCTime 2022-05-04 21:43:18.528883964 UTC]
+[Debug#SQL] SELECT DISTINCT "db_comment"."topic"
+FROM "db_comment"
+; []
+[Debug#SQL] SELECT "db_comment"."id", "db_comment"."topic", "db_comment"."text", "db_comment"."time"
+FROM "db_comment"
+WHERE "db_comment"."topic" = ?
+; [PersistText "ciao"]

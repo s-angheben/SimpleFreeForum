@@ -77,8 +77,8 @@ handlePostComment topic comText = do
 funToHandler :: (AppM ServerError) a -> Handler a
 funToHandler (AppM t) = Handler $ runReaderT t "env"
 
-main = run 8080 $ serve forumAPI $ hoistServer forumAPI funToHandler forumServer
 
+runServer = run 8080 $ serve forumAPI $ hoistServer forumAPI funToHandler forumServer
 
 ---
 data Error = Error
